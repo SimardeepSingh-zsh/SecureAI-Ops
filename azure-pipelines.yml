@@ -1,0 +1,28 @@
+trigger:
+-main
+
+variables:
+  acrNAME: 'myregistry'
+  imageName: 'myimage'
+
+steps:
+- task: Docker@2
+  inputs:
+    containerRegistry: '$(acrNAME)'
+    repository: '$(imageName)'
+    command: 'buildAndPush'
+    Dockerfile: 'Dockerfile'
+    tags:  |
+      $(Build.BuildId)
+      latest
+
+-task: KubernetesManifest@0
+  inputs:
+    action: deploy
+    kubernetesServiceConnection: 'my-aks-connection'
+    namespace: 'default'
+    manifests:  |
+      $(System.DefaultWorkingDirectory)/chatbot-deployment.yaml
+    imagePullSecrets:  |
+      acr-auth
+      
