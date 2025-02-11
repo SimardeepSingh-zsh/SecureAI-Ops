@@ -1,0 +1,20 @@
+{
+    "items": [
+      {
+        "type": "query",
+        "content": "SecurityRecommendations | where Category == 'AI'",
+        "name": "AI Security Gaps"
+      },
+      {
+        "type": "metric",
+        "content": "CognitiveServices Accounts | anomaly detection",
+        "name": "Usage Anomalies"
+      },
+      {
+        "type": "grid",
+        "content": "AuditLogs | where OperationName contains 'Key'",
+        "name": "Sensitive Operations"
+      }
+    ]
+  }
+  
