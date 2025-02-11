@@ -1,0 +1,25 @@
+{
+    "phases": [
+{ 
+    "name": "Detection",
+    "actions": [
+        "Check Azure Security Center alerts",
+        "Review Activity Log anomalies"
+    ]
+},
+{
+    "name": "Containment",
+    "actions": [
+        "Rotate compromised crediantials: az keyvault secret set --name <secret>",
+        "Isolate compromised resources: az network nsg rule create --deny-access"
+    ]    
+},
+{
+    "name": "Recovery",
+    "actions": [
+      "Rotate from backup: az backup restore",
+      "Validate model integrity""
+   ]
+  }
+ ]
+}
