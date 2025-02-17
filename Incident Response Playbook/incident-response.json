@@ -1,0 +1,25 @@
+{
+    "phases": {
+      "Identification": {
+        "actions": [
+          "Quarantine affected models",
+          "Preserve audit logs",
+          "Initiate backup isolation"
+        ]
+      },
+      "Containment": {
+        "actions": [
+          "Rotate all API keys: ./rotate-keys.sh",
+          "Enable network lockdown: ./network-lockdown.ps1",
+          "Notify legal team"
+        ]
+      },
+      "Recovery": {
+        "actions": [
+          "Deploy clean backup",
+          "Validate model outputs",
+          "Post-mortem analysis"
+        ]
+      }
+    }
+  }
