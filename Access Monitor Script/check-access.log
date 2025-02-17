@@ -1,0 +1,7 @@
+#!/bin/bash
+# Monitors who accessed AI models
+
+az monitor activity-log list \
+  --resource-group ai-resources \
+  --query "[?operationName.value=='Microsoft.CognitiveServices/accounts/listKeys/action'].{Time:eventTimestamp,User:claims.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name}" \
+  --output table
