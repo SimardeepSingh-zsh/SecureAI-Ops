@@ -1,0 +1,12 @@
+# EU Data Privacy Shield 🇪🇺
+
+## What This Does
+- Automatically removes personal info from training data
+- John → "Person_1"
+- (555) 123-4567 → "[PHONE]"
+
+## Data Flow
+```mermaid
+pie title Data Processing
+    "Raw Data" : 30
+    "Anonymized" : 70
